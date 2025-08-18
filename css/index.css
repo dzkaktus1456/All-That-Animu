@@ -204,3 +204,22 @@ header h1 { font-size: 2em; color: var(--header-color); }
   pointer-events: none;
   filter: grayscale(10%) brightness(90%);
 }
+
+.anime-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+  gap: 20px;
+  padding: 20px;
+}
+
+.anime-card {
+  max-width: 240px;     
+  margin: auto;         
+}
+
+.anime-cover {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;    
+  border-radius: 12px;
+}
