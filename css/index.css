@@ -1,0 +1,206 @@
+/* =================================== CSS VARIABLES (fallback chỉ dùng khi chưa apply theme) =================================== */ :root { --font-main: 'Segoe UI', sans-serif; --bg-color: #fff; --text-color: #000; --accent: #33e1b4; --header-color: #333; --tab-bg: #ddd; --tab-color: #333; --tab-active-bg: #33e1b4; --tab-active-color: #fff; --input-bg: #fff; --input-color: #000; --card-bg: #fff; --card-color: #000; --card-shadow: rgba(0,0,0,0.1); --subtitle-color: #555; --button-bg: #eee; --button-color: #333; --button-border: #ccc; --hover-bg: #33e1b4; --hover-color: #fff; --to-top-shadow: rgba(0,0,0,0.2); }
+
+{ box-sizing: border-box; transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+
+
+body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-main); margin: 0; padding: 0; }
+
+header { text-align: center; padding: 20px 10px 0; }
+
+header h1 { font-size: 2em; color: var(--header-color); }
+
+.tabs { display: flex; justify-content: center; gap: 10px; margin: 15px 0; }
+
+.tabs button { padding: 10px 20px; border-radius: 12px; border: 1px solid transparent; cursor: pointer; font-weight: bold; background-color: var(--tab-bg); color: var(--tab-color); }
+
+.tabs button.active { background-color: var(--tab-active-bg); color: var(--tab-active-color); }
+
+.search-box, .sort-box { text-align: center; margin: 10px 0; }
+
+.search-box input { padding: 10px; width: 80%; max-width: 400px; border-radius: 8px; border: none; background-color: var(--input-bg); color: var(--input-color); }
+
+.sort-box button { padding: 8px 14px; background-color: var(--button-bg); color: var(--button-color); border: 1px solid var(--button-border); border-radius: 6px; cursor: pointer; }
+
+.sort-box button:hover { background-color: var(--hover-bg); color: var(--hover-color); }
+
+.anime-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
+
+.anime-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--card-color);
+  box-shadow: 0 0 10px var(--card-shadow);
+  transition: transform 0.3s, background-color 0.3s;
+  
+  height: 240px;        /* 🔹 cố định chiều cao */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.anime-cover {
+  width: 100%;
+  height: 180px;         /* 🔹 cố định chiều cao ảnh */
+  object-fit: cover;     /* 🔹 không làm méo ảnh, tự crop */
+  border-radius: 12px;
+}
+
+.anime-title { font-size: 1.1em; margin-top: 10px; font-weight: bold; }
+
+.anime-subtitle { font-size: 0.9em; color: var(--subtitle-color); }
+
+#toTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 18px;
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  border: 1px solid var(--button-border);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 14px;
+  display: none;
+  box-shadow: 0 0 8px var(--to-top-shadow);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent; /* chặn highlight màu xám khi tap */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#toTopBtn:active,
+#toTopBtn:focus,
+#toTopBtn:focus-visible {
+  background-color: var(--button-bg) !important;
+  color: var(--button-color) !important;
+  border-color: var(--button-border) !important;
+  outline: none !important;
+  box-shadow: 0 0 8px var(--to-top-shadow) !important;
+}
+
+#toTopBtn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: transparent;
+  pointer-events: none;
+}
+
+#themeToggle { position: fixed; top: 16px; right: 16px; z-index: 9999; background-color: var(--button-bg); color: var(--button-color); border: none; padding: 8px 12px; border-radius: 999px; font-weight: bold; font-size: 14px; cursor: pointer; box-shadow: 0 0 6px rgba(0, 0, 0, 0.4); }
+
+#themeToggle:hover { background-color: var(--hover-bg); color: var(--hover-color); }
+
+/* Force color reset for themed buttons on theme change */ .themed-button { background-color: var(--button-bg); color: var(--button-color); border: 1px solid var(--button-border); transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+
+.themed-button:hover { background-color: var(--hover-bg); color: var(--hover-color); }
+
+.theme-controls {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 9999;
+  transition: opacity .2s ease;
+}
+
+.theme-controls.hidden {           /* ẩn khi cuộn xuống */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.theme-controls {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 9999;
+}
+
+.theme-controls select,
+.theme-controls button {
+  all: unset;
+  pointer-events: auto;
+  box-sizing: border-box;
+  
+  padding: 8px 8px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+
+  border-radius: 999px;
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  border: 1px solid var(--button-border) !important;
+  box-shadow: 0 0 6px var(--to-top-shadow);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.theme-controls select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.theme-controls select:hover,
+.theme-controls button:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-color);
+}
+#sortBtn.active {
+  background-color: var(--hover-bg);
+  color: var(--hover-color);
+  border-color: var(--hover-bg);
+}
+#themeToggle img {
+  width: 24px;
+  height: 24px;
+  color: var(--button-color);
+  transition: color 0.3s ease;
+}
+
+#themeToggle:hover img {
+  color: var(--hover-color);
+}
+/* ==== ICON BUTTON (theme toggle, dùng chung được) ==== */
+.icon-button {
+  width: 20px;
+  height: 20px;
+  padding: 8px;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  border: 1px solid var(--button-border);
+  box-shadow: 0 0 6px var(--to-top-shadow);
+
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.icon-button:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-color);
+}
+
+.icon-button img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  pointer-events: none;
+  filter: grayscale(10%) brightness(90%);
+}

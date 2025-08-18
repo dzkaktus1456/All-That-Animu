@@ -1,0 +1,238 @@
+/* ===================================
+   LIGHT / DARK THEME VARIANTS
+   Dùng kèm class: body.light.{theme}, body.dark.{theme}
+=================================== */
+
+/* ========= DEFAULT ========= */
+body.light.default {
+  --bg-color: #f4f7f9;
+  --text-color: #2c3e50;
+  --accent: #33b5e5;
+  --header-color: #2980b9;
+  --tab-bg: #e6eff5;
+  --tab-color: #2c3e50;
+  --tab-active-bg: #33b5e5;
+  --tab-active-color: #fff;
+  --input-bg: #ffffff;
+  --input-color: #2c3e50;
+  --card-bg: #ffffff;
+  --card-color: #2c3e50;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --subtitle-color: #607d8b;
+  --button-bg: #d9ecf3;
+  --button-color: #2c3e50;
+  --button-border: #a7cde0;
+  --hover-bg: #33b5e5;
+  --hover-color: #ffffff;
+  --to-top-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark.default {
+  --bg-color: #1b1f23;
+  --text-color: #d3e0ea;
+  --accent: #4fc3f7;
+  --header-color: #81d4fa;
+  --tab-bg: #2a2f36;
+  --tab-color: #d3e0ea;
+  --tab-active-bg: #4fc3f7;
+  --tab-active-color: #000000;
+  --input-bg: #2f343c;
+  --input-color: #d3e0ea;
+  --card-bg: #24292e;
+  --card-color: #d3e0ea;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --subtitle-color: #90caf9;
+  --button-bg: #2a2f36;
+  --button-color: #d3e0ea;
+  --button-border: #4fc3f7;
+  --hover-bg: #4fc3f7;
+  --hover-color: #000000;
+  --to-top-shadow: rgba(0, 0, 0, 0.3);
+}
+/* ========= MIKU ========= */
+body.light.miku {
+  --bg-color: #e3fdfd;
+  --text-color: #006d66;
+  --accent: #00cec9;
+  --header-color: #00b7b1;
+  --tab-bg: #d0f4f4;
+  --tab-color: #006d66;
+  --tab-active-bg: #00cec9;
+  --tab-active-color: #ffffff;
+  --input-bg: #ffffff;
+  --input-color: #006d66;
+  --card-bg: #ffffff;
+  --card-color: #006d66;
+  --card-shadow: rgba(0, 128, 128, 0.1);
+  --subtitle-color: #349e91;
+  --button-bg: #d4fafa;
+  --button-color: #006d66;
+  --button-border: #a2e9e2;
+  --hover-bg: #00cec9;
+  --hover-color: #ffffff;
+  --to-top-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark.miku {
+  --bg-color: #0a1c1c;
+  --text-color: #aafcf8;
+  --accent: #00f0dc;
+  --header-color: #66f6ea;
+  --tab-bg: #132222;
+  --tab-color: #aafcf8;
+  --tab-active-bg: #00f0dc;
+  --tab-active-color: #000000;
+  --input-bg: #1a2c2c;
+  --input-color: #aafcf8;
+  --card-bg: #162828;
+  --card-color: #aafcf8;
+  --card-shadow: rgba(0, 255, 255, 0.15);
+  --subtitle-color: #88e5dc;
+  --button-bg: #132222;
+  --button-color: #aafcf8;
+  --button-border: #2eddd3;
+  --hover-bg: #00f0dc;
+  --hover-color: #000000;
+  --to-top-shadow: rgba(0, 0, 0, 0.3);
+}
+/* ========= ASUKA ========= */
+body.light.asuka {
+  --bg-color: #fff1ef;
+  --text-color: #5a1e1e;
+  --accent: #e75c4a;
+  --header-color: #c94a3f;
+  --tab-bg: #ffe0dc;
+  --tab-color: #5a1e1e;
+  --tab-active-bg: #e75c4a;
+  --tab-active-color: #ffffff;
+  --input-bg: #fff8f6;
+  --input-color: #4a1a1a;
+  --card-bg: #ffffff;
+  --card-color: #4a1a1a;
+  --card-shadow: rgba(128, 40, 40, 0.1);
+  --subtitle-color: #a0453e;
+  --button-bg: #ffe7e3;
+  --button-color: #5a1e1e;
+  --button-border: #eaa39e;
+  --hover-bg: #e75c4a;
+  --hover-color: #ffffff;
+  --to-top-shadow: rgba(100, 0, 0, 0.15);
+}
+
+body.dark.asuka {
+  --bg-color: #1a0c0c;
+  --text-color: #ffc6c6;
+  --accent: #ff6655;
+  --header-color: #ff998f;
+  --tab-bg: #2b1515;
+  --tab-color: #ffaaaa;
+  --tab-active-bg: #ff6655;
+  --tab-active-color: #000000;
+  --input-bg: #331919;
+  --input-color: #ffd9d9;
+  --card-bg: #2a1313;
+  --card-color: #ffd9d9;
+  --card-shadow: rgba(255, 80, 80, 0.1);
+  --subtitle-color: #ffaaa0;
+  --button-bg: #2a1515;
+  --button-color: #ffc6c6;
+  --button-border: #b05a5a;
+  --hover-bg: #ff6655;
+  --hover-color: #000000;
+  --to-top-shadow: rgba(255, 0, 0, 0.25);
+}
+
+/* ========= MAMIMI ========= */
+/* ========= MAMIMI (CHUẨN THEO MẪU MỚI) ========= */
+body.light.mamimi {
+  --bg-color: #fbeeee;
+  --text-color: #4d2b2b;
+  --accent: #a8434c;
+  --header-color: #a8434c;
+  --tab-bg: #f9e7e7;
+  --tab-color: #4d2b2b;
+  --tab-active-bg: #a8434c;
+  --tab-active-color: #fff;
+  --input-bg: #fff;
+  --input-color: #4d2b2b;
+  --card-bg: #ffffff;
+  --card-color: #4d2b2b;
+  --card-shadow: rgba(100, 0, 0, 0.1);
+  --subtitle-color: #804040;
+  --button-bg: #f6dada;
+  --button-color: #4d2b2b;
+  --button-border: #dba0a0;
+  --hover-bg: #a8434c;
+  --hover-color: #fff;
+  --to-top-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark.mamimi {
+  --bg-color: #0d0808;
+  --text-color: #ffcce0;
+  --accent: #a8434c;
+  --header-color: #ffa0b0;
+  --tab-bg: #1a0e0e;
+  --tab-color: #ffcce0;
+  --tab-active-bg: #a8434c;
+  --tab-active-color: #fff;
+  --input-bg: #1a1010;
+  --input-color: #ffcce0;
+  --card-bg: #1a1010;
+  --card-color: #ffcce0;
+  --card-shadow: rgba(255, 100, 100, 0.1);
+  --subtitle-color: #eaa;
+  --button-bg: #1a0e0e;
+  --button-color: #ffcce0;
+  --button-border: #a8434c;
+  --hover-bg: #a8434c;
+  --hover-color: #fff;
+  --to-top-shadow: rgba(255, 0, 0, 0.2);
+}
+
+/* ========= KANADE ========= */
+body.light.kanade {
+  --bg-color: #f2f3f5;
+  --text-color: #202020;
+  --accent: #999999;
+  --header-color: #333;
+  --tab-bg: #e6e6e6;
+  --tab-color: #444;
+  --tab-active-bg: #999999;
+  --tab-active-color: #fff;
+  --input-bg: #ffffff;
+  --input-color: #202020;
+  --card-bg: #ffffff;
+  --card-color: #202020;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --subtitle-color: #606060;
+  --button-bg: #dddddd;
+  --button-color: #222;
+  --button-border: #aaa;
+  --hover-bg: #999999;
+  --hover-color: #fff;
+  --to-top-shadow: rgba(0, 0, 0, 0.2);
+}
+
+body.dark.kanade {
+  --bg-color: #101010;
+  --text-color: #e0e0e0;
+  --accent: #888888;
+  --header-color: #ccc;
+  --tab-bg: #1a1a1a;
+  --tab-color: #ccc;
+  --tab-active-bg: #888888;
+  --tab-active-color: #000;
+  --input-bg: #1f1f1f;
+  --input-color: #e0e0e0;
+  --card-bg: #181818;
+  --card-color: #e0e0e0;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --subtitle-color: #999;
+  --button-bg: #2a2a2a;
+  --button-color: #e0e0e0;
+  --button-border: #666;
+  --hover-bg: #888888;
+  --hover-color: #000;
+  --to-top-shadow: rgba(0, 0, 0, 0.4);
+}

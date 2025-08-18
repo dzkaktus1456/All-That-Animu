@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Air</title>
+
+  <!-- Theme Sync -->
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/light-dark-theme.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+  <script>
+    (() => {
+      const mode = localStorage.getItem("theme-mode") || "light";
+      const variant = localStorage.getItem("theme-variant") || "default";
+      document.documentElement.className = "";
+      document.write(`<body class="${mode} ${variant}">`);
+    })();
+  </script>
+
+  <style>
+    main {
+      padding: 1rem;
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .season-title {
+      font-size: 1.2rem;
+      color: var(--subtitle-color);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .episode-button {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--text-color);
+      background: var(--card-bg);
+      transition: 0.2s ease;
+      min-width: 40px;
+    }
+
+    .episode-button:hover {
+      background: var(--hover-bg);
+      color: var(--accent-color);
+    }
+
+    .episode-button.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 16px;
+      margin: 20px auto 40px;
+      display: block;
+      background-color: var(--card-bg);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<main>
+  <h1>Air</h1>
+
+  <!-- Player -->
+  <iframe id="player" allowfullscreen></iframe>
+
+  <!-- Nút chọn tập -->
+  <div id="episodes-container"></div>
+</main>
+
+<script>
+  const url = new URLSearchParams(location.search);
+  const ep = parseInt(url.get("ep")) || 0;
+
+  const allSeasons = {
+    s1: {
+      name: "Mùa 1",
+      episodes: 12,
+      links: [
+        "https://short.icu/-ExV7Ect5",
+        "https://short.icu/66CB_78xf",
+        "https://short.icu/Y-BDqGR1Y",
+        "https://short.icu/VAsRZG3C1",
+        "https://short.icu/T4unqxuil",
+        "https://short.icu/6y4g-R_Vf",
+        "https://short.icu/b1BN4lBl4",
+        "https://short.icu/iXIQMCoLK",
+        "https://short.icu/RNsSGDla5",
+        "https://short.icu/ayK32-fbw",
+        "https://short.icu/_Zk2cfVWs",
+        "https://short.icu/vjCYOzL-e"
+      ]
+    }
+  };
+
+  const container = document.getElementById("episodes-container");
+
+  for (const [key, seasonData] of Object.entries(allSeasons)) {
+    const div = document.createElement("div");
+
+    const title = document.createElement("div");
+    title.className = "season-title";
+    title.textContent = seasonData.name;
+    div.appendChild(title);
+
+    const group = document.createElement("div");
+    group.className = "episode-buttons";
+
+    for (let i = 0; i < seasonData.episodes; i++) {
+      const btn = document.createElement("a");
+      btn.className = "episode-button";
+      if (key === "s1" && i === ep) btn.classList.add("active");
+
+      btn.textContent = i + 1;
+      btn.href = `?ep=${i}`;
+
+      group.appendChild(btn);
+    }
+
+    div.appendChild(group);
+    container.appendChild(div);
+  }
+
+  const currentLink = allSeasons.s1.links[ep] || "";
+  const player = document.getElementById("player");
+
+  if (currentLink && currentLink !== "$$") {
+    player.src = currentLink;
+  } else {
+    player.style.display = "none";
+  }
+</script>
+
+<!-- Theme Sync JS -->
+<script src="../js/index.js" defer></script>
+</body>
+</html>

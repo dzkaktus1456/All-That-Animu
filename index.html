@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All That Anime</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/light-dark-theme.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body class="light default"> 
+
+<div class="theme-controls">
+  <select id="themeSelect" title="Chọn chủ đề">
+    <option value="default">Default</option>
+    <option value="miku">Miku</option>
+    <option value="asuka">Asuka</option>
+    <option value="mamimi">Mamimi</option>
+    <option value="kanade">Kanade</option>
+  </select>
+  <button id="themeToggle" title="Đổi giao diện">
+    <img id="themeIcon" src="icons/moon.svg" alt="Theme Icon" width="16" height="20">
+  </button>
+</div>
+  
+<header>
+    <h1>All That Anime</h1>
+
+    <div id="anime-counts" style="margin-top: 10px; font-size: 1em;"></div><div class="tabs">
+
+  <button data-category="TV Series">TV Series</button>
+  <button data-category="Movies">Movies</button>
+  <button data-category="NSFW">NSFW</button>
+</div>
+
+<div class="search-box">
+  <input type="text" id="search" placeholder="Tìm kiếm anime...">
+</div>
+
+<div class="sort-box">
+  <button id="sortBtn" class="themed-button">Sắp xếp A → Z</button>
+</div>
+
+<main class="anime-list" id="animeList">
+  <a href="AnimeProject/chainsaw-man.html" class="anime-card" data-category="TV Series">
+    <img src="https://files.catbox.moe/tsk2b3.webp" alt="Chainsaw Man" class="anime-cover"/>
+    <div class="anime-title">Chainsaw Man</div>
+    <div class="anime-subtitle">THỢ SĂN QUỶ</div>
+  </a>
+
+  <a href="AnimeProject/maquia.html" class="anime-card" data-category="Movies">
+    <img src="https://files.catbox.moe/qz8e13.jpeg" alt="Maquia" class="anime-cover"/>
+    <div class="anime-title">Maquia</div>
+    <div class="anime-subtitle">CHỜ NGÀY LỜI HỨA NỞ HOA</div>
+  </a>
+
+  <a href="AnimeProject/made-in-abyss.html" class="anime-card" data-category="TV Series">
+    <img src="https://files.catbox.moe/4nz7nh.jpg" alt="Made in Abyss" class="anime-cover"/>
+    <div class="anime-title">Made in Abyss</div>
+    <div class="anime-subtitle">ĐI VÀO VỰC THẲM</div>
+  </a>
+
+  <a href="AnimeProject/kanamemo.html" class="anime-card" data-category="TV Series">
+    <img src="https://files.catbox.moe/k0rq1i.jpg" alt="Kanamemo" class="anime-cover"/>
+    <div class="anime-title">Kanamemo</div>
+    <div class="anime-subtitle"></div>
+  </a>
+
+  <a href="AnimeProject/air.html" class="anime-card" data-category="TV Series">
+    <img src="https://files.catbox.moe/v4cdzk.jpeg" alt="Air" class="anime-cover"/>
+    <div class="anime-title">Air</div>
+    <div class="anime-subtitle">KIỆT TÁC MÙA HÈ</div>
+  </a>
+
+  <a href="AnimeProject/Genshiken.html" class="anime-card" data-category="TV Series">
+    <img src="https://files.catbox.moe/8z2h5j.jpg" alt="Genshiken" class="anime-cover"/>
+    <div class="anime-title">Genshiken</div>
+    <div class="anime-subtitle">HỘI NGHIÊN CỨU VĂN HÓA TRỰC QUAN</div>
+  </a>
+
+  <a href="AnimeProject/isekai-ojisan.html" class="anime-card" data-category="TV Series">
+    <img src="https://files.catbox.moe/n3nylu.jpg" alt="Isekai Ojisan" class="anime-cover"/>
+    <div class="anime-title">Isekai Ojisan</div>
+    <div class="anime-subtitle">CHÚ TÔI TRỞ VỀ TỪ DỊ GIỚI</div>
+  </a>
+
+  <a href="AnimeProject/oyasumi-sex.html" class="anime-card" data-category="NSFW">
+    <img src="https://files.catbox.moe/ww6d3e.jpeg" alt="Oyasumi Sex" class="anime-cover"/>
+    <div class="anime-title">Oyasumi Sex</div>
+    <div class="anime-subtitle"></div>
+  </a>
+</main>
+  </main><button id="toTopBtn" class="themed-button" title="Về đầu trang">⬆</button>
+
+  <script src="js/index.js" defer></script></body>
+</html>

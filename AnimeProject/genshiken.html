@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genshiken</title>
+
+  <!-- Theme Sync -->
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/light-dark-theme.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+  <script>
+    (() => {
+      const mode = localStorage.getItem("theme-mode") || "light";
+      const variant = localStorage.getItem("theme-variant") || "default";
+      document.documentElement.className = "";
+      document.write(`<body class="${mode} ${variant}">`);
+    })();
+  </script>
+
+  <style>
+    main {
+      padding: 1rem;
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .season-title {
+      font-size: 1.2rem;
+      color: var(--subtitle-color);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .episode-button {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--text-color);
+      background: var(--card-bg);
+      transition: 0.2s ease;
+      min-width: 40px;
+    }
+
+    .episode-button:hover {
+      background: var(--hover-bg);
+      color: var(--accent-color);
+    }
+
+    .episode-button.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 16px;
+      margin: 20px auto 40px;
+      display: block;
+      background-color: var(--card-bg);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<main>
+  <h1>Genshiken</h1>
+
+  <!-- Player -->
+  <iframe id="player" allowfullscreen></iframe>
+
+  <!-- Nút chọn tập -->
+  <div id="episodes-container"></div>
+</main>
+
+<script>
+  const url = new URLSearchParams(location.search);
+  const ep = parseInt(url.get("ep")) || 0;
+  const season = url.get("season") || "s3";
+
+  const allSeasons = {
+    s1: { name: "Mùa 1", episodes: 12, links: Array(12).fill("$$") },
+    ova1: { name: "OVA", episodes: 3, links: Array(3).fill("$$") },
+    s2: { name: "Mùa 2", episodes: 12, links: Array(12).fill("$$") },
+    s3: {
+      name: "Mùa 3",
+      episodes: 13,
+      links: [
+        "https://short.icu/ZRErzyL_d",
+        "https://short.icu/bVYi5pcG6",
+        "https://short.icu/naKVZKOie",
+        "https://short.icu/VIjOulREe",
+        "https://short.icu/Vrnux5kOq",
+        "https://short.icu/h0dJBt2r_",
+        "https://short.icu/lux4yHPBw",
+        "https://short.icu/CiKLNTgfq",
+        "https://short.icu/ksz6pjUCBd",
+        "https://short.icu/IZuNLwO1W",
+        "https://short.icu/ZFf7shWO_",
+        "https://short.icu/li2jQKfVf",
+        "https://short.icu/upKNo_XYU"
+      ]
+    },
+    ova2: { name: "OVA 2", episodes: 1, links: ["$$"] }
+  };
+
+  const container = document.getElementById("episodes-container");
+
+  for (const [key, seasonData] of Object.entries(allSeasons)) {
+    const div = document.createElement("div");
+
+    const title = document.createElement("div");
+    title.className = "season-title";
+    title.textContent = seasonData.name;
+    div.appendChild(title);
+
+    const group = document.createElement("div");
+    group.className = "episode-buttons";
+
+    for (let i = 0; i < seasonData.episodes; i++) {
+      const btn = document.createElement("a");
+      btn.className = "episode-button";
+      if (key === season && i === ep) btn.classList.add("active");
+
+      btn.textContent = i + 1;
+      btn.href = `?season=${key}&ep=${i}`;
+
+      group.appendChild(btn);
+    }
+
+    div.appendChild(group);
+    container.appendChild(div);
+  }
+
+  const currentSeason = allSeasons[season];
+  const currentLink = currentSeason?.links[ep] || "";
+  const player = document.getElementById("player");
+
+  if (currentLink && currentLink !== "$$") {
+    player.src = currentLink;
+  } else {
+    player.style.display = "none";
+  }
+</script>
+
+<!-- Theme Sync JS -->
+<script src="../js/index.js" defer></script>
+</body>
+</html>
