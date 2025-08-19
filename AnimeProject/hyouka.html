@@ -25,16 +25,189 @@
       margin: auto;
       text-align: center;
     }
+
     h1 {
       font-size: 2.2rem;
       margin-bottom: 0.5rem;
     }
+
     h2 {
       font-size: 1.1rem;
       margin-top: 0;
       margin-bottom: 2rem;
       color: var(--subtitle-color);
     }
+
+    .season-title {
+      font-size: 1.2rem;
+      color: var(--subtitle-color);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .episode-button {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--text-color);
+      background: var(--card-bg);
+      transition: 0.2s ease;
+      min-width: 40px;
+    }
+
+    .episode-button:hover {
+      background: var(--hover-bg);
+      color: var(--accent-color);
+    }
+
+    .episode-button.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 16px;
+      margin: 20px auto 20px;
+      display: block;
+      background-color: var(--card-bg);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .anime-thumbnail {
+      max-width: 300px;
+      margin: 20px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,255,200,0.2);
+    }
+
+    .anime-thumbnail img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<main>
+  <h1>Hyouka</h1>
+
+  <iframe id="player1" allowfullscreen></iframe>
+  <iframe id="player2" allowfullscreen style="display: none;"></iframe>
+
+  <div id="episodes-container"></div>
+</main>
+
+<script>
+  const url = new URLSearchParams(location.search);
+  const ep = parseInt(url.get("ep")) || 0;   // mặc định tập 0 (tức tập 1)
+  const season = url.get("season") || "s1";
+
+  const allSeasons = {
+    s1: {
+      name: "Mùa 1",
+      episodes: 22,
+      links: [
+        ["https://short.icu/pekJfH-ig3"],
+        ["https://short.icu/go0rYiQny"],
+        ["https://short.icu/_9yIbKbh_"],
+        ["https://short.icu/4kRylAuKF"],
+        ["https://short.icu/tspS4W-z1"],
+        ["https://short.icu/oxXIaSjfP"],
+        ["https://short.icu/4U9frriRc"],
+        ["https://short.icu/yj4s_P9F_"],
+        ["https://short.icu/McPVmB9En"],
+        ["https://short.icu/Md2bpWlROG"],
+        ["https://short.icu/FISqjibcs"],
+        ["https://short.icu/jhnNaFO1R"],
+        ["https://short.icu/hiEhLDwMO"],
+        ["https://short.icu/A0QM3IHOg_"],
+        ["https://short.icu/to7P7YB9S"],
+        ["https://short.icu/cqyit2Wq5"],
+        ["https://short.icu/n9jPqRi9v"],
+        ["https://short.icu/HcQ_56Jsy"],
+        ["https://short.icu/uXfzl59PP"],
+        ["https://short.icu/NOkU5YLMW"],
+        ["https://short.icu/k3luO6-lI"],
+        ["https://short.icu/rWMTpXVER"]
+      ]
+    },
+    ova: {
+      name: "OVA",
+      episodes: 1,
+      links: [
+        ["https://short.icu/TjJ0rY5VP"] // 11.5
+      ]
+    }
+  };
+
+  const container = document.getElementById("episodes-container");
+
+  for (const [key, seasonData] of Object.entries(allSeasons)) {
+    const div = document.createElement("div");
+
+    const title = document.createElement("div");
+    title.className = "season-title";
+    title.textContent = seasonData.name;
+    div.appendChild(title);
+
+    const group = document.createElement("div");
+    group.className = "episode-buttons";
+
+    for (let i = 0; i < seasonData.episodes; i++) {
+      const btn = document.createElement("a");
+      btn.className = "episode-button";
+      if (key === season && i === ep) btn.classList.add("active");
+
+      btn.textContent = key === "ova" ? "11.5" : i + 1;
+      btn.href = `?season=${key}&ep=${i}`;
+
+      group.appendChild(btn);
+    }
+
+    div.appendChild(group);
+    container.appendChild(div);
+  }
+
+  const currentSeason = allSeasons[season];
+  const currentLinks = currentSeason?.links[ep] || [];
+
+  const player1 = document.getElementById("player1");
+  const player2 = document.getElementById("player2");
+
+  if (currentLinks.length >= 1 && currentLinks[0] !== "$$") {
+    player1.src = currentLinks[0];
+    player1.style.display = "block";
+  } else {
+    player1.style.display = "none";
+  }
+
+  if (currentLinks.length >= 2 && currentLinks[1] !== "$$") {
+    player2.src = currentLinks[1];
+    player2.style.display = "block";
+  } else {
+    player2.style.display = "none";
+  }
+</script>
+
+<script src="../js/index.js" defer></script>
+</body>
+</html>    }
     .season-title {
       font-size: 1.2rem;
       color: var(--subtitle-color);
@@ -184,4 +357,5 @@
   } else {
     player2.style.display = "none";
   }
+
 </script>
