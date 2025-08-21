@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Genesis Evangelion</title>
+
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/light-dark-theme.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+  <script>
+    (() => {
+      const mode = localStorage.getItem("theme-mode") || "light";
+      const variant = localStorage.getItem("theme-variant") || "default";
+      document.documentElement.className = "";
+      document.write(`<body class="${mode} ${variant}">`);
+    })();
+  </script>
+
+  <style>
+    main {
+      padding: 1rem;
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      color: var(--subtitle-color);
+    }
+
+    .season-title {
+      font-size: 1.2rem;
+      color: var(--subtitle-color);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .episode-button {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--text-color);
+      background: var(--card-bg);
+      transition: 0.2s ease;
+      min-width: 40px;
+    }
+
+    .episode-button:hover {
+      background: var(--hover-bg);
+      color: var(--accent-color);
+    }
+
+    .episode-button.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 16px;
+      margin: 20px auto 20px;
+      display: block;
+      background-color: var(--card-bg);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<main>
+  <h1>Neon Genesis Evangelion</h1>
+
+  <iframe id="player1" allowfullscreen></iframe>
+  <iframe id="player2" allowfullscreen style="display: none;"></iframe>
+
+  <div id="episodes-container"></div>
+
+  <!-- Bộ sưu tập hình ảnh -->
+  <div class="image-gallery">
+    <img src="https://files.catbox.moe/d6tjxv.jpg" alt="Ảnh 1">
+    <img src="https://files.catbox.moe/ewwpgn.jpg" alt="Ảnh 2">
+    <img src="https://files.catbox.moe/dfjidq.png" alt="Ảnh 3">
+    <img src="https://files.catbox.moe/63as1c.jpg" alt="Ảnh 4">
+    <img src="https://files.catbox.moe/663ngu.jpg" alt="Ảnh 5">
+    <img src="https://files.catbox.moe/c9nb7o.jpg" alt="Ảnh 6">
+    <img src="https://files.catbox.moe/3hrxvh.jpg" alt="Ảnh 7">
+  </div>
+</main>
+
+<script>
+  const url = new URLSearchParams(location.search);
+  const ep = parseInt(url.get("ep")) || 0;
+  const season = url.get("season") || "s1";
+
+  const allSeasons = {
+    s1: {
+      name: "Mùa 1",
+      episodes: 26,
+      links: [
+        ["https://short.icu/5IFBw1bzf"],
+        ["https://short.icu/mKy0rqNkU"],
+        ["https://short.icu/WdtBMdt_U"],
+        ["https://short.icu/a-2-2TkEg"],
+        ["https://short.icu/EcgGyHUfD"],
+        ["https://short.icu/jGWZM2Mee"],
+        ["https://short.icu/plE7IPzUT"],
+        ["https://short.icu/ScDOU5s_G"],
+        ["https://short.icu/p5fqJalMY"],
+        ["https://short.icu/ruDUoaOuq"],
+        ["https://short.icu/0pVbbHqn0"],
+        ["https://short.icu/ZLyj2uNtV"],
+        ["https://short.icu/Ef4xCtr08"],
+        ["https://short.icu/RbcuZPVx9"],
+        ["https://short.icu/2-OSVd8Gc"],
+        ["https://short.icu/eo3mWKT5g"],
+        ["https://short.icu/8TXb3Cdsj"],
+        ["https://short.icu/SwByh1vQD"],
+        ["https://short.icu/Kzcsoburi"],
+        ["https://short.icu/8FB5XNmCA"],
+        ["https://short.icu/DttpU5sFZ"],
+        ["https://short.icu/Gpm-GuVaO"],
+        ["https://short.icu/Fglj5dx83"],
+        ["https://short.icu/dsVXVgPQv"],
+        ["https://short.icu/8iCsAIOrK"],
+        ["https://short.icu/-5n0uEnwT"]
+      ]
+    },
+    movie1: {
+      name: "Movie 1 (phần kết): The End of Evangelion",
+      episodes: 1,
+      links: [["https://short.icu/CUzTTbdJ7"]]
+    },
+    movie2: {
+      name: "Movie 2 (recap): Death & Rebirth",
+      episodes: 1,
+      links: [["https://short.icu/tS_oJNuCS"]]
+    },
+    movie3: {
+      name: "Movie 3: Evangelion 1.0 - You Are (Not) Alone",
+      episodes: 1,
+      links: [["https://short.icu/XY9LqMmBG"]]
+    },
+    movie4: {
+      name: "Movie 4: Evangelion 2.0 - You Can (Not) Advance",
+      episodes: 1,
+      links: [["https://short.icu/55qsmGTg_"]]
+    },
+    movie5: {
+      name: "Movie 5: Evangelion 3.0 - You Can (Not) Redo",
+      episodes: 1,
+      links: [["https://short.icu/Kr62X5kha"]]
+    },
+    movie6: {
+      name: "Movie 6: Evangelion 3.0+1.0 - Thrice Upon a Time",
+      episodes: 1,
+      links: [["https://short.icu/Nd-FsSQVc"]]
+    }
+  };
+
+  const container = document.getElementById("episodes-container");
+
+  for (const [key, seasonData] of Object.entries(allSeasons)) {
+    const div = document.createElement("div");
+
+    const title = document.createElement("div");
+    title.className = "season-title";
+    title.textContent = seasonData.name;
+    div.appendChild(title);
+
+    const group = document.createElement("div");
+    group.className = "episode-buttons";
+
+    for (let i = 0; i < seasonData.episodes; i++) {
+      const btn = document.createElement("a");
+      btn.className = "episode-button";
+      if (key === season && i === ep) btn.classList.add("active");
+
+      btn.textContent = i + 1;
+      btn.href = `?season=${key}&ep=${i}`;
+
+      group.appendChild(btn);
+    }
+
+    div.appendChild(group);
+    container.appendChild(div);
+  }
+
+  const currentSeason = allSeasons[season];
+  const currentLinks = currentSeason?.links[ep] || [];
+
+  const player1 = document.getElementById("player1");
+  const player2 = document.getElementById("player2");
+
+  if (currentLinks.length >= 1 && currentLinks[0] !== "$$") {
+    player1.src = currentLinks[0];
+    player1.style.display = "block";
+  } else {
+    player1.style.display = "none";
+  }
+
+  if (currentLinks.length >= 2 && currentLinks[1] !== "$$") {
+    player2.src = currentLinks[1];
+    player2.style.display = "block";
+  } else {
+    player2.style.display = "none";
+  }
+</script>
+
+<script src="../js/index.js" defer></script>
+</body>
+</html>
