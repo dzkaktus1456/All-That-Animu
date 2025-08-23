@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Violet Evergarden</title>
+
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/light-dark-theme.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+  <script>
+    (() => {
+      const mode = localStorage.getItem("theme-mode") || "light";
+      const variant = localStorage.getItem("theme-variant") || "default";
+      document.documentElement.className = "";
+      document.write(`<body class="${mode} ${variant}">`);
+    })();
+  </script>
+
+  <style>
+    main {
+      padding: 1rem;
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      color: var(--subtitle-color);
+    }
+
+    .season-title {
+      font-size: 1.2rem;
+      color: var(--subtitle-color);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .episode-button {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--text-color);
+      background: var(--card-bg);
+      transition: 0.2s ease;
+      min-width: 40px;
+    }
+
+    .episode-button:hover {
+      background: var(--hover-bg);
+      color: var(--accent-color);
+    }
+
+    .episode-button.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 16px;
+      margin: 20px auto 20px;
+      display: block;
+      background-color: var(--card-bg);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    }
+  </style>
+</head>
+
+<main>
+  <h1>Violet Evergarden</h1>
+
+  <iframe id="player1" allowfullscreen></iframe>
+  <iframe id="player2" allowfullscreen style="display: none;"></iframe>
+
+  <div id="episodes-container"></div>
+
+  <!-- Gallery ảnh -->
+  <div class="gallery">
+    <img src="https://files.catbox.moe/e9fuzq.jpg" alt="Violet Evergarden 1">
+    <img src="https://files.catbox.moe/5sxunu.jpg" alt="Violet Evergarden 2">
+    <img src="https://files.catbox.moe/rqlfch.jpg" alt="Violet Evergarden 3">
+    <img src="https://files.catbox.moe/vj0mdz.jpg" alt="Violet Evergarden 4">
+    <img src="https://files.catbox.moe/op6b4p.jpg" alt="Violet Evergarden 5">
+    <img src="https://files.catbox.moe/dhux2u.jpg" alt="Violet Evergarden 6">
+    <img src="https://files.catbox.moe/6woz8x.png" alt="Violet Evergarden 7">
+  </div>
+</main>
+
+<script>
+  const url = new URLSearchParams(location.search);
+  const ep = parseInt(url.get("ep")) || 0;
+  const season = url.get("season") || "s1_hard";
+
+  const allSeasons = {
+    s1_hard: {
+      name: "Mùa 1 (hardsub)",
+      episodes: 13,
+      links: [
+        ["https://short.icu/b_we7tSnC"],
+        ["https://short.icu/d7uvvAeQz"],
+        ["https://short.icu/lwgPVaGFj"],
+        ["https://short.icu/F3Qbdh2YB"],
+        ["https://short.icu/4GIMMa3tn"],
+        ["https://short.icu/Hl0dHtxVe"],
+        ["https://short.icu/qgVWsMP04"],
+        ["https://short.icu/5-ippwHeb"],
+        ["https://short.icu/6YeHasW_B"],
+        ["https://short.icu/uX2K0VMwV"],
+        ["https://short.icu/BfSBvEfKpy"],
+        ["https://short.icu/qTPkR7P9u"],
+        ["https://short.icu/JwzvPrZdq"]
+      ]
+    },
+    s1_soft: {
+      name: "Mùa 1 (softsub YamiSora)",
+      episodes: 13,
+      links: [
+        ["https://short.icu/wGAWrf2X7"],
+        ["https://short.icu/A7-70X9Nl"],
+        ["https://short.icu/3hkB5p2e2"],
+        ["https://short.icu/TwxAqm2ZH"],
+        ["https://short.icu/TJJm0jGd4"],
+        ["https://short.icu/KJXCaBkpo"],
+        ["https://short.icu/YC9zl7gqBB"],
+        ["https://short.icu/R7HoVNuYf"],
+        ["https://short.icu/ZCB7C6-JQ"],
+        ["https://short.icu/dPjYLeUUv"],
+        ["https://short.icu/zK0d-uuu7"],
+        ["https://short.icu/YEmi4OrHq"],
+        ["https://short.icu/dl2gs6uzw"]
+      ]
+    },
+    extra: {
+      name: "Extra (tập 14)",
+      episodes: 1,
+      links: [
+        ["https://short.icu/SbjbXU6bI"]
+      ]
+    },
+    movie1: {
+      name: "Movie Recap",
+      episodes: 1,
+      links: [
+        ["https://short.icu/nKwes2nPc"]
+      ]
+    },
+    movie2: {
+      name: "Movie 1",
+      episodes: 1,
+      links: [
+        ["https://short.icu/ml3dlEyQM"]
+      ]
+    },
+    movie3: {
+      name: "Movie 2",
+      episodes: 1,
+      links: [
+        ["https://short.icu/xAO4ynC62N"]
+      ]
+    }
+  };
+
+  const container = document.getElementById("episodes-container");
+
+  for (const [key, seasonData] of Object.entries(allSeasons)) {
+    const div = document.createElement("div");
+
+    const title = document.createElement("div");
+    title.className = "season-title";
+    title.textContent = seasonData.name;
+    div.appendChild(title);
+
+    const group = document.createElement("div");
+    group.className = "episode-buttons";
+
+    for (let i = 0; i < seasonData.episodes; i++) {
+      const btn = document.createElement("a");
+      btn.className = "episode-button";
+      if (key === season && i === ep) btn.classList.add("active");
+
+      btn.textContent = i + 1;
+      btn.href = `?season=${key}&ep=${i}`;
+
+      group.appendChild(btn);
+    }
+
+    div.appendChild(group);
+    container.appendChild(div);
+  }
+
+  const currentSeason = allSeasons[season];
+  const currentLinks = currentSeason?.links[ep] || [];
+
+  const player1 = document.getElementById("player1");
+  const player2 = document.getElementById("player2");
+
+  if (currentLinks.length >= 1 && currentLinks[0] !== "$$") {
+    player1.src = currentLinks[0];
+    player1.style.display = "block";
+  } else {
+    player1.style.display = "none";
+  }
+
+  if (currentLinks.length >= 2 && currentLinks[1] !== "$$") {
+    player2.src = currentLinks[1];
+    player2.style.display = "block";
+  } else {
+    player2.style.display = "none";
+  }
+</script>
+
+<script src="../js/index.js" defer></script>
+</body>
+</html>
