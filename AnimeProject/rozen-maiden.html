@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rozen Maiden</title>
+
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/light-dark-theme.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+  <script>
+    (() => {
+      const mode = localStorage.getItem("theme-mode") || "light";
+      const variant = localStorage.getItem("theme-variant") || "default";
+      document.documentElement.className = "";
+      document.write(`<body class="${mode} ${variant}">`);
+    })();
+  </script>
+
+  <style>
+    main {
+      padding: 1rem;
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      color: var(--subtitle-color);
+    }
+
+    .season-title {
+      font-size: 1.2rem;
+      color: var(--subtitle-color);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .episode-button {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--text-color);
+      background: var(--card-bg);
+      transition: 0.2s ease;
+      min-width: 40px;
+    }
+
+    .episode-button:hover {
+      background: var(--hover-bg);
+      color: var(--accent-color);
+    }
+
+    .episode-button.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 16px;
+      margin: 20px auto 20px;
+      display: block;
+      background-color: var(--card-bg);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<main>
+  <h1>Rozen Maiden</h1>
+
+  <iframe id="player1" allowfullscreen></iframe>
+  <iframe id="player2" allowfullscreen style="display: none;"></iframe>
+
+  <div id="episodes-container"></div>
+</main>
+
+<script>
+  const url = new URLSearchParams(location.search);
+  const ep = parseInt(url.get("ep")) || 0;
+  const season = url.get("season") || "s1";
+
+  const allSeasons = {
+    s1: {
+      name: "Mùa 1",
+      episodes: 12,
+      links: [
+        ["https://short.icu/7RbfhpPb7"],
+        ["https://short.icu/pbzMlQCEV"],
+        ["https://short.icu/Cn3MXTZa7"],
+        ["https://short.icu/G1jPa86jS"],
+        ["https://short.icu/5uv6LfB7l"],
+        ["https://short.icu/ipTJE5t5T"],
+        ["https://short.icu/apjLmkv6L"],
+        ["https://short.icu/CPa1a3ei7"],
+        ["https://short.icu/z65m-kAo5"],
+        ["https://short.icu/c0GVgXvgo"],
+        ["https://short.icu/qWMT94Oyi"],
+        ["https://short.icu/g53Xf9KuP"]
+      ]
+    },
+    s1de: {
+      name: "Mùa 1 (Tiếng Đức)",
+      episodes: 12,
+      links: [
+        ["https://short.icu/rEdHsRDM4e"],
+        ["https://short.icu/lHksWaOTi"],
+        ["https://short.icu/cFlXdsXzF"],
+        ["https://short.icu/iB9iCDSEw"],
+        ["https://short.icu/i_n0wDocv"],
+        ["https://short.icu/9DxvWb3xn"],
+        ["https://short.icu/oU_c--Vjh"],
+        ["https://short.icu/u9Iz7c5zG"],
+        ["https://short.icu/LXE_HzoqDY"],
+        ["https://short.icu/1Jzkm7-tz"],
+        ["https://short.icu/bYC8D8hx9"],
+        ["https://short.icu/u0tyaH1dU"]
+      ]
+    },
+    s2: {
+      name: "Mùa 2 (Träumend)",
+      episodes: 12,
+      links: [
+        ["https://short.icu/-LAxrVTyZ"],
+        ["https://short.icu/fW0IL3fxq"],
+        ["https://short.icu/CYsh-lBLg"],
+        ["https://short.icu/Ru3yGqj2Y"],
+        ["https://short.icu/-BGZQgzFf"],
+        ["https://short.icu/522KO3N6-"],
+        ["https://short.icu/lfNxcjjhx"],
+        ["https://short.icu/o8rpB3Lyq"],
+        ["https://short.icu/7L7tED5ME"],
+        ["https://short.icu/hahGDn5Zz"],
+        ["https://short.icu/iKuBYWkwF"],
+        ["https://short.icu/OJ97073HZ"]
+      ]
+    },
+    s0: {
+      name: "Special (Ouvertüre)",
+      episodes: 2,
+      links: [
+        ["https://short.icu/2iil-GyZQt"],
+        ["https://short.icu/YehHSCCcR"]
+      ]
+    },
+    s3: {
+      name: "Mùa 3 (2013)",
+      episodes: 13,
+      links: [
+        ["https://short.icu/CsHtCP9oP"],
+        ["https://short.icu/WUAKRcVC0"],
+        ["https://short.icu/ncnR4YOCY"],
+        ["https://short.icu/fz_1b_oBh"],
+        ["https://short.icu/Ugcwr5nNc"],
+        ["https://short.icu/Li7UgWC-y"],
+        ["https://short.icu/IqGZ9-1Wh"],
+        ["https://short.icu/5mcuho1Uy"],
+        ["https://short.icu/LQbjiBDNx"],
+        ["https://short.icu/whB8S8c1m"],
+        ["https://short.icu/Ef1VA4paO"],
+        ["https://short.icu/aDaDZB6wY"],
+        ["https://short.icu/fm1I-XVQr"]
+      ]
+    }
+  };
+
+  const container = document.getElementById("episodes-container");
+
+  for (const [key, seasonData] of Object.entries(allSeasons)) {
+    const div = document.createElement("div");
+
+    const title = document.createElement("div");
+    title.className = "season-title";
+    title.textContent = seasonData.name;
+    div.appendChild(title);
+
+    const group = document.createElement("div");
+    group.className = "episode-buttons";
+
+    for (let i = 0; i < seasonData.episodes; i++) {
+      const btn = document.createElement("a");
+      btn.className = "episode-button";
+      if (key === season && i === ep) btn.classList.add("active");
+
+      btn.textContent = i + 1;
+      btn.href = `?season=${key}&ep=${i}`;
+
+      group.appendChild(btn);
+    }
+
+    div.appendChild(group);
+    container.appendChild(div);
+  }
+
+  const currentSeason = allSeasons[season];
+  const currentLinks = currentSeason?.links[ep] || [];
+
+  const player1 = document.getElementById("player1");
+  const player2 = document.getElementById("player2");
+
+  if (currentLinks.length >= 1 && currentLinks[0] !== "$$") {
+    player1.src = currentLinks[0];
+    player1.style.display = "block";
+  } else {
+    player1.style.display = "none";
+  }
+
+  if (currentLinks.length >= 2 && currentLinks[1] !== "$$") {
+    player2.src = currentLinks[1];
+    player2.style.display = "block";
+  } else {
+    player2.style.display = "none";
+  }
+</script>
+
+<script src="../js/index.js" defer></script>
+</body>
+</html>
