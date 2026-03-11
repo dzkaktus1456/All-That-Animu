@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akame ga Kill tet</title>
+
+<title>Akame ga Kill</title>
 
 <link rel="stylesheet" href="../css/index.css">
 <link rel="stylesheet" href="../css/light-dark-theme.css">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+<script>
+(() => {
+const mode = localStorage.getItem("theme-mode") || "light";
+const variant = localStorage.getItem("theme-variant") || "default";
+document.documentElement.className = "";
+document.write(`<body class="${mode} ${variant}">`);
+})();
+</script>
 
 <style>
 
@@ -35,6 +48,86 @@ border-radius:10px;
 border:1px solid #444;
 text-decoration:none;
 color:#fff;
+cursor:pointer;
+}
+
+iframe{
+width:100%;
+max-width:640px;
+height:360px;
+border:none;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<main>
+
+<h1>Akame ga Kill</h1>
+
+<iframe id="player" allowfullscreen></iframe>
+
+<div id="episodes"></div>
+
+</main>
+
+<script>
+
+const seasons={
+s1:{
+name:"Mùa 1",
+episodes:24,
+links:[["https://short.icu/bRdMebNnu"],["https://short.icu/PWMWxfvt0"],["https://short.icu/8rAld7b36"],["https://short.icu/HvDwE8Xjv"],["https://short.icu/7O6s0JQ8f"],["https://short.icu/or4br6qMN"],["https://short.icu/RTBB1mTyM"],["https://short.icu/YA0kqS3zH"],["https://short.icu/HxMEXkz3G"],["https://short.icu/5Z8p8FVwV"],["https://short.icu/_-VYAZE9e"],["https://short.icu/t7oVFvZ_a"],["https://short.icu/fHMuLjLI6"],["https://short.icu/iXqwmO-kL"],["https://short.icu/VkCXIq3Xr"],["https://short.icu/hds8zWH2d"],["https://short.icu/oukdouEDB"],["https://short.icu/BjQz0FMFW"],["https://short.icu/xShFvHLdN"],["https://short.icu/FuxqzjK4p"],["https://short.icu/pn-pgkUhQG"],["https://short.icu/p1NSVxHJR"],["https://short.icu/KO0op8kL6"],["https://short.icu/D3bpuDy3q"],]
+},
+}
+
+const container=document.getElementById("episodes")
+const player=document.getElementById("player")
+
+Object.entries(seasons).forEach(([key,s])=>{
+
+const title=document.createElement("div")
+title.className="season-title"
+title.textContent=s.name
+
+container.appendChild(title)
+
+const group=document.createElement("div")
+group.className="episode-buttons"
+
+for(let i=0;i<s.episodes;i++){
+
+const btn=document.createElement("div")
+
+btn.className="episode-button"
+btn.textContent=i+1
+
+btn.onclick=()=>{
+player.src=s.links[i][0]
+}
+
+group.appendChild(btn)
+
+}
+
+container.appendChild(group)
+
+})
+
+/* auto load tập 1 */
+
+const firstSeason=Object.values(seasons)[0]
+
+if(firstSeason && firstSeason.links.length>0){
+player.src=firstSeason.links[0][0]
+}
+
+</script>
+
+</body>
+</html>color:#fff;
 }
 
 iframe{
