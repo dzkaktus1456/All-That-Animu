@@ -1,0 +1,457 @@
+[
+  {
+    "title": "Chainsaw Man",
+    "subtitle": "Thợ săn quỷ",
+    "image": "https://files.catbox.moe/tsk2b3.webp",
+    "link": "AnimeProject/chainsaw-man.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Jigokuraku",
+    "subtitle": "Địa ngục cực lạc",
+    "image": "https://files.catbox.moe/cc3mqp.jpg",
+    "link": "AnimeProject/jigokuraku.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Tamako Market",
+    "subtitle": "Truyện về Tamako",
+    "image": "https://files.catbox.moe/gfjuzc.webp",
+    "link": "AnimeProject/tamako-market.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Nichijou",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/mg2y7q.jpg",
+    "link": "AnimeProject/nichijou.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Hentai Ouji to Warawanai Neko",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/cdpscj.jpg",
+    "link": "AnimeProject/hentai-ouji-to-warawanai-neko.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Hyouka",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/9obfzb.jpg",
+    "link": "AnimeProject/hyouka.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Darling in the Franxx",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/kt0n43.webp",
+    "link": "AnimeProject/darling-in-the-franxx",
+    "category": "TV Series"
+  },
+  {
+    "title": "Val x love",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/r2sei2.jpg",
+    "link": "AnimeProject/val-x-love.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Strike the Blood",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/l99s47.jpg",
+    "link": "AnimeProject/strike-the-blood.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Machine-Doll wa Kizutsukanai",
+    "subtitle": "Unbreakable machine-doll",
+    "image": "https://files.catbox.moe/6hs7ot.webp",
+    "link": "AnimeProject/unbreakable-machine-doll.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Plastic Memories",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/oy2a4g.png",
+    "link": "AnimeProject/plastic-memories.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Cyberpunk: Edgerunners",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/zv7hvg.webp",
+    "link": "AnimeProject/cyberpunk-edgerunners.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Papa no Iukoto wo Kikinasai!",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/m16hvk.png",
+    "link": "AnimeProject/papa-no-iukoto-wo-kikinasai.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Sayoasa",
+    "subtitle": "Maquia chờ ngày lời hứa nở hoa",
+    "image": "https://files.catbox.moe/qz8e13.jpeg",
+    "link": "AnimeProject/sayoasa.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Perfect Blue",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/42tuct.jpeg",
+    "link": "AnimeProject/perfect-blue.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Josee to Tora to Sakana-tachi",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/y5oxca.jpg",
+    "link": "AnimeProject/josee-to-tora-to-sakana-tachi.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Natsu e no Tonneru, Sayonara no Deguchi",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/49cczv.jpg",
+    "link": "AnimeProject/natsu-e-no-tonneru-sayonara-no-deguchi.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Look Back",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/733sbv.jpeg",
+    "link": "AnimeProject/look-back.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Kotonoha no Niwa",
+    "subtitle": "Khu vườn ngôn từ",
+    "image": "https://files.catbox.moe/ryuv82.jpg",
+    "link": "AnimeProject/kotonoha-no-niwa.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Byosoku Go Senchimetoru",
+    "subtitle": "5cm trên giây",
+    "image": "https://files.catbox.moe/331cd5.jpg",
+    "link": "AnimeProject/byosoku-go-senchimetoru.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Kimi no Na wa",
+    "subtitle": "Tên của cậu là gì",
+    "image": "https://files.catbox.moe/ln2dq5.jpg",
+    "link": "AnimeProject/kimi-no-nawa.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Suzume no Tojimari",
+    "subtitle": "Khóa chặt cửa nào Suzume",
+    "image": "https://files.catbox.moe/blg98r.jpg",
+    "link": "AnimeProject/suzume-no-tojimari.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Tenki no Ko wa",
+    "subtitle": "Đứa con của thời tiết",
+    "image": "https://files.catbox.moe/s3fquw.jpg",
+    "link": "AnimeProject/tenki-no-ko.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Kumo no Muko, Yakusoku no Basho",
+    "subtitle": "Bên kia mây trời, là nơi hẹn ước",
+    "image": "https://files.catbox.moe/6xf8ha.jpg",
+    "link": "AnimeProject/kumo-no-muko-yakusoku-no-basho.html",
+    "category": "Movies"
+  },
+  {
+    "title": "Shadow House",
+    "subtitle": "Dinh thự bóng",
+    "image": "https://files.catbox.moe/f5syjx.jpg",
+    "link": "AnimeProject/shadow-house.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Made In Abyss",
+    "subtitle": "Đi vào vực thẳm",
+    "image": "https://files.catbox.moe/4nz7nh.jpg",
+    "link": "AnimeProject/made-in-abyss.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Watamote",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/nf9wd8.jpg",
+    "link": "AnimeProject/watamote.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Kanamemo",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/k0rq1i.jpg",
+    "link": "AnimeProject/kanamemo.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Air",
+    "subtitle": "Kiệt tác mùa hè",
+    "image": "https://files.catbox.moe/v4cdzk.jpeg",
+    "link": "AnimeProject/air.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Eromanga-sensei",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/nqf1px.jpg",
+    "link": "AnimeProject/eromanga-sensei.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Genshiken",
+    "subtitle": "Hội nghiên cứu văn hóa trực quan",
+    "image": "https://files.catbox.moe/8z2h5j.jpg",
+    "link": "AnimeProject/genshiken.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Isekai Ojisan",
+    "subtitle": "Chú tôi trở về từ dị giới",
+    "image": "https://files.catbox.moe/n3nylu.jpg",
+    "link": "AnimeProject/isekai-ojisan.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Dagashi Kashi",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/xv14ws.webp",
+    "link": "AnimeProject/dagashi-kashi.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Gochuumon wa Usagi Desu ka",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/ctj0ab.jpg",
+    "link": "AnimeProject/gochuumon-wa-usagi-desu-ka.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Outbreak Company",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/jh9km0.webp",
+    "link": "AnimeProject/outbreak-company.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Sonny Boy",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/li1rjj.png",
+    "link": "AnimeProject/sonny-boy.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Bokutachi no Remake",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/3adhx3.jpg",
+    "link": "AnimeProject/bokutachi-no-remake.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Yakusoku no Neverland",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/f3qe8m.webp",
+    "link": "AnimeProject/yakusoku-no-neverland.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "One Room",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/lmyyns.jpg",
+    "link": "AnimeProject/one-room.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Domestic na Kanojo",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/7l2ley.jpg",
+    "link": "AnimeProject/domestic-na-kanojo.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Kaguya-sama",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/ep4cxe.jpg",
+    "link": "AnimeProject/kaguya-sama.html",
+    "category": "TV Series"
+  },
+  {
+    "title": "Benriya Saitou-san, Isekai ni Iku",
+    "subtitle": "",
+    "image": "https://files.catbox.moe/c8e1vy.jpeg",
+    "link": "AnimeProject/benriya-saitou-san-isekai-ni-iku.html",
+    "category": "TV Series"
+  },
+  {
+"title": "Sentouin, Hakenshimasu!",
+"subtitle": "",
+"image": "https://files.catbox.moe/i9w3lw.jpg",
+"link": "AnimeProject/sentouin-hakenshimasu.html",
+"category": "TV Series"
+},
+{
+"title": "Yamada-kun to Lv999 no Koi wo Suru",
+"subtitle": "",
+"image": "https://files.catbox.moe/pz6rz7.jpg",
+"link": "AnimeProject/yamada-kun-to-lv999-no-koi-wo-suru.html",
+"category": "TV Series"
+},
+{
+"title": "Yuragi-sou no Yuuna-san",
+"subtitle": "",
+"image": "https://files.catbox.moe/hmdl2i.jpg",
+"link": "AnimeProject/yuragi-sou-no-yuuna-san.html",
+"category": "TV Series"
+},
+{
+"title": "Kotoura-san",
+"subtitle": "",
+"image": "https://files.catbox.moe/9i5amm.jpg",
+"link": "AnimeProject/kotoura-san.html",
+"category": "TV Series"
+},
+{
+"title": "Sakurasou no Pet na Kanojo",
+"subtitle": "",
+"image": "https://files.catbox.moe/3i6bk7.webp",
+"link": "AnimeProject/sakurasou-no-pet-na-kanojo.html",
+"category": "TV Series"
+},
+{
+"title": "Ano Hi Mita Hana no Namae...",
+"subtitle": "Anohana",
+"image": "https://files.catbox.moe/c2t38j.jpg",
+"link": "AnimeProject/anohana.html",
+"category": "TV Series"
+},
+{
+"title": "Violet Evergarden",
+"subtitle": "",
+"image": "https://files.catbox.moe/341x58.jpeg",
+"link": "AnimeProject/violet-evergarden.html",
+"category": "TV Series"
+},
+{
+"title": "Uchi no Maid ga Uzasugiru!",
+"subtitle": "",
+"image": "https://files.catbox.moe/a7tnt2.jpg",
+"link": "AnimeProject/uchi-no-maid-ga-uzasugiru.html",
+"category": "TV Series"
+},
+{
+"title": "Akame ga Kill!",
+"subtitle": "",
+"image": "https://files.catbox.moe/ezwl40.jpg",
+"link": "AnimeProject/akame-ga-kill1.html",
+"category": "TV Series"
+},
+{
+"title": "Dungeon meshi",
+"subtitle": "Mỹ vị hầm ngục",
+"image": "https://files.catbox.moe/85yoho.webp",
+"link": "AnimeProject/dungeon-meshi.html",
+"category": "TV Series"
+},
+{
+"title": "Ijiranaide Nagatoro-san",
+"subtitle": "",
+"image": "https://files.catbox.moe/eo575v.webp",
+"link": "AnimeProject/ ijiranaide-nagatoro-san.html",
+"category": "TV Series"
+},
+{
+"title": "Elfen Lied",
+"subtitle": "",
+"image": "https://files.catbox.moe/3esv0x.jpg",
+"link": "AnimeProject/elfen-lied.html",
+"category": "TV Series"
+},
+{
+"title": "NieR Automata Ver1.1a",
+"subtitle": "",
+"image": "https://files.catbox.moe/sks383.jpg",
+"link": "AnimeProject/nier-automata.html",
+"category": "TV Series"
+},
+{
+"title": "Serial Experiments Lain",
+"subtitle": "",
+"image": "https://files.catbox.moe/siukyx.jpg",
+"link": "AnimeProject/serial-experiments-lain.html",
+"category": "TV Series"
+},
+{
+"title": "Berserk (1997)",
+"subtitle": "",
+"image": "https://files.catbox.moe/ibyuqd.jpeg",
+"link": "AnimeProject/berserk-1997.html",
+"category": "TV Series"
+},
+{
+"title": "Rozen Maiden",
+"subtitle": "",
+"image": "https://files.catbox.moe/0j6ga9.jpg",
+"link": "AnimeProject/rozen-maiden.html",
+"category": "TV Series"
+},
+{
+"title": "Neon Genesis Evangelion",
+"subtitle": "Shin Seiki Evangelion",
+"image": "https://files.catbox.moe/eo575v.webp",
+"link": "AnimeProject/neon-genesis-evangelion.html",
+"category": "TV Series"
+},
+{
+"title": "Claymore",
+"subtitle": "",
+"image": "https://files.catbox.moe/uqtn5s.jpeg",
+"link": "AnimeProject/claymore.html",
+"category": "TV Series"
+},
+{
+"title": "Oyasumi Sex",
+"subtitle": "",
+"image": "https://files.catbox.moe/33z16x.jpg",
+"link": "AnimeProject/oyasumi-sex.html",
+"category": "NSFW"
+},
+{
+"title": "Boku no Pico",
+"subtitle": "",
+"image": "https://files.catbox.moe/zu0jkc.jpg",
+"link": "AnimeProject/boku-no-pico.html",
+"category": "NSFW"
+},
+{
+"title": "Sisters Natsu no Saigo no Hi",
+"subtitle": "uncen",
+"image": "https://files.catbox.moe/iochfk.jpg",
+"link": "AnimeProject/sisters.html",
+"category": "NSFW"
+},
+{
+"title": "Showtime! Uta no Onee-san Datte Shitai",
+"subtitle": "",
+"image": "https://files.catbox.moe/cj4kcu.jpg",
+"link": "AnimeProject/showtime-onee-san.html",
+"category": "NSFW"
+},
+{
+"title": "JimiHen!! Jimiko o Kaechauu Jun Isei Kouyuu",
+"subtitle": "",
+"image": "https://files.catbox.moe/oi4iub.jpg",
+"link": "AnimeProject/jimihen.html",
+"category": "NSFW"
+}
+]
