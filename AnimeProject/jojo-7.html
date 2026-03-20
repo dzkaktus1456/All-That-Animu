@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JoJo's Bizarre Adventure Part 7: Steel Ball Run</title>
+
+<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" href="../css/light-dark-theme.css">
+<link rel="icon" href="../favicon.ico">
+
+<style>
+
+main{
+padding:1rem;
+max-width:960px;
+margin:auto;
+text-align:center;
+}
+
+.season-title{
+margin-top:25px;
+font-size:18px;
+}
+
+.episode-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:6px;
+justify-content:center;
+}
+
+.episode-button{
+padding:6px 12px;
+border-radius:10px;
+border:1px solid #444;
+cursor:pointer;
+}
+
+iframe{
+width:100%;
+max-width:640px;
+height:360px;
+border:none;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main>
+
+<h1>JoJo's Bizarre Adventure Part 7: Steel Ball Run</h1>
+
+<iframe id="player" allowfullscreen></iframe>
+
+<div id="episodes"></div>
+
+</main>
+
+<script>
+
+const seasons={
+s1:{
+name:"Mùa 7",
+episodes:1,
+links:[["https://short.icu/71rMEC4fy"],]
+},
+}
+
+const container=document.getElementById("episodes")
+const player=document.getElementById("player")
+
+Object.values(seasons).forEach(s=>{
+
+const title=document.createElement("div")
+title.className="season-title"
+title.textContent=s.name
+
+container.appendChild(title)
+
+const group=document.createElement("div")
+group.className="episode-buttons"
+
+for(let i=0;i<s.episodes;i++){
+
+const btn=document.createElement("div")
+btn.className="episode-button"
+btn.textContent=i+1
+
+btn.onclick=()=>{
+player.src=s.links[i][0]
+}
+
+group.appendChild(btn)
+
+}
+
+container.appendChild(group)
+
+})
+
+const firstSeason=Object.values(seasons)[0]
+
+if(firstSeason && firstSeason.links.length>0){
+player.src=firstSeason.links[0][0]
+}
+
+const mode = localStorage.getItem("theme-mode") || "light"
+const variant = localStorage.getItem("theme-variant") || "default"
+
+document.body.className = mode + " " + variant
+
+</script>
+
+</body>
+</html>
