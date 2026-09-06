@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akame ga kill test</title>
+
+<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" href="../css/light-dark-theme.css">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+<script>
+(() => {
+const mode = localStorage.getItem("theme-mode") || "light";
+const variant = localStorage.getItem("theme-variant") || "default";
+document.documentElement.className = "";
+document.write(`<body class="${mode} ${variant}">`);
+})();
+</script>
+
+<style>
+
+main{
+padding:1rem;
+max-width:960px;
+margin:auto;
+text-align:center;
+}
+
+.season-title{
+margin-top:25px;
+font-size:18px;
+}
+
+.episode-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:6px;
+justify-content:center;
+}
+
+.episode-button{
+padding:6px 12px;
+border-radius:10px;
+border:1px solid #444;
+text-decoration:none;
+color:#fff;
+cursor:pointer;
+}
+
+iframe{
+width:100%;
+max-width:640px;
+height:360px;
+border:none;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<main>
+
+<h1>Akame ga Kill</h1>
+
+<iframe id="player" allowfullscreen></iframe>
+
+<div id="episodes"></div>
+
+</main>
+
+<script>
+
+const seasons={
+  "s1": {
+    "name": "Mùa 1",
+    "episodes": 24,
+    "links": [
+      [
+        "https://player.abyssplayer.com/bRdMebNnu"
+      ],
+      [
+        "https://player.abyssplayer.com/PWMWxfvt0"
+      ],
+      [
+        "https://player.abyssplayer.com/8rAld7b36"
+      ],
+      [
+        "https://player.abyssplayer.com/HvDwE8Xjv"
+      ],
+      [
+        "https://player.abyssplayer.com/7O6s0JQ8f"
+      ],
+      [
+        "https://player.abyssplayer.com/or4br6qMN"
+      ],
+      [
+        "https://player.abyssplayer.com/RTBB1mTyM"
+      ],
+      [
+        "https://player.abyssplayer.com/YA0kqS3zH"
+      ],
+      [
+        "https://player.abyssplayer.com/HxMEXkz3G"
+      ],
+      [
+        "https://player.abyssplayer.com/5Z8p8FVwV"
+      ],
+      [
+        "https://player.abyssplayer.com/_-VYAZE9e"
+      ],
+      [
+        "https://player.abyssplayer.com/t7oVFvZ_a"
+      ],
+      [
+        "https://player.abyssplayer.com/fHMuLjLI6"
+      ],
+      [
+        "https://player.abyssplayer.com/iXqwmO-kL"
+      ],
+      [
+        "https://player.abyssplayer.com/VkCXIq3Xr"
+      ],
+      [
+        "https://player.abyssplayer.com/hds8zWH2d"
+      ],
+      [
+        "https://player.abyssplayer.com/oukdouEDB"
+      ],
+      [
+        "https://player.abyssplayer.com/BjQz0FMFW"
+      ],
+      [
+        "https://player.abyssplayer.com/xShFvHLdN"
+      ],
+      [
+        "https://player.abyssplayer.com/FuxqzjK4p"
+      ],
+      [
+        "https://player.abyssplayer.com/pn-pgkUhQG"
+      ],
+      [
+        "https://player.abyssplayer.com/p1NSVxHJR"
+      ],
+      [
+        "https://player.abyssplayer.com/KO0op8kL6"
+      ],
+      [
+        "https://player.abyssplayer.com/D3bpuDy3q"
+      ]
+    ]
+  }
+}
+
+const container=document.getElementById("episodes")
+const player=document.getElementById("player")
+
+Object.entries(seasons).forEach(([key,s])=>{
+
+const title=document.createElement("div")
+title.className="season-title"
+title.textContent=s.name
+
+container.appendChild(title)
+
+const group=document.createElement("div")
+group.className="episode-buttons"
+
+for(let i=0;i<s.episodes;i++){
+
+const btn=document.createElement("div")
+
+btn.className="episode-button"
+btn.textContent=i+1
+
+btn.onclick=()=>{
+player.src=s.links[i][0]
+}
+
+group.appendChild(btn)
+
+}
+
+container.appendChild(group)
+
+})
+
+const firstSeason=Object.values(seasons)[0]
+
+if(firstSeason && firstSeason.links.length>0){
+player.src=firstSeason.links[0][0]
+}
+
+</script>
+
+<script src="/All-That-Animu/js/index.js"></script>
+</html>
+.episode-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:6px;
+justify-content:center;
+}
+
+.episode-button{
+padding:6px 12px;
+border-radius:10px;
+border:1px solid #444;
+text-decoration:none;
+color:#fff;
+cursor:pointer;
+}
+
+iframe{
+width:100%;
+max-width:640px;
+height:360px;
+border:none;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<main>
+
+<h1>Akame ga Kill</h1>
+
+<iframe id="player" allowfullscreen></iframe>
+
+<div id="episodes"></div>
+
+</main>
+
+<script>
+
+const seasons={
+s1:{
+name:"Mùa 1",
+episodes:24,
+links:[["https://player.abyssplayer.com/bRdMebNnu"],["https://player.abyssplayer.com/PWMWxfvt0"],["https://player.abyssplayer.com/8rAld7b36"],["https://player.abyssplayer.com/HvDwE8Xjv"],["https://player.abyssplayer.com/7O6s0JQ8f"],["https://player.abyssplayer.com/or4br6qMN"],["https://player.abyssplayer.com/RTBB1mTyM"],["https://player.abyssplayer.com/YA0kqS3zH"],["https://player.abyssplayer.com/HxMEXkz3G"],["https://player.abyssplayer.com/5Z8p8FVwV"],["https://player.abyssplayer.com/_-VYAZE9e"],["https://player.abyssplayer.com/t7oVFvZ_a"],["https://player.abyssplayer.com/fHMuLjLI6"],["https://player.abyssplayer.com/iXqwmO-kL"],["https://player.abyssplayer.com/VkCXIq3Xr"],["https://player.abyssplayer.com/hds8zWH2d"],["https://player.abyssplayer.com/oukdouEDB"],["https://player.abyssplayer.com/BjQz0FMFW"],["https://player.abyssplayer.com/xShFvHLdN"],["https://player.abyssplayer.com/FuxqzjK4p"],["https://player.abyssplayer.com/pn-pgkUhQG"],["https://player.abyssplayer.com/p1NSVxHJR"],["https://player.abyssplayer.com/KO0op8kL6"],["https://player.abyssplayer.com/D3bpuDy3q"],]
+},
+}
+
+const container=document.getElementById("episodes")
+const player=document.getElementById("player")
+
+Object.entries(seasons).forEach(([key,s])=>{
+
+const title=document.createElement("div")
+title.className="season-title"
+title.textContent=s.name
+
+container.appendChild(title)
+
+const group=document.createElement("div")
+group.className="episode-buttons"
+
+for(let i=0;i<s.episodes;i++){
+
+const btn=document.createElement("div")
+
+btn.className="episode-button"
+btn.textContent=i+1
+
+btn.onclick=()=>{
+player.src=s.links[i][0]
+}
+
+group.appendChild(btn)
+
+}
+
+container.appendChild(group)
+
+})
+
+/* auto load tập 1 */
+
+const firstSeason=Object.values(seasons)[0]
+
+if(firstSeason && firstSeason.links.length>0){
+player.src=firstSeason.links[0][0]
+}
+
+</script>
+
+<script src="/All-That-Animu/js/index.js"></script>
+</html>color:#fff;
+}
+
+iframe{
+width:100%;
+max-width:640px;
+height:360px;
+border:none;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main>
+
+<h1>Akame ga Kill</h1>
+
+<iframe id="player"></iframe>
+
+<div id="episodes"></div>
+
+</main>
+
+<script>
+
+const seasons={s1:{name:"Mùa 1",episodes:24,links:[["https://player.abyssplayer.com/bRdMebNnu"],
+["https://player.abyssplayer.com/PWMWxfvt0"],
+["https://player.abyssplayer.com/8rAld7b36"],
+["https://player.abyssplayer.com/HvDwE8Xjv"],
+["https://player.abyssplayer.com/7O6s0JQ8f"],
+["https://player.abyssplayer.com/or4br6qMN"],
+["https://player.abyssplayer.com/RTBB1mTyM"],
+["https://player.abyssplayer.com/YA0kqS3zH"],
+["https://player.abyssplayer.com/HxMEXkz3G"],
+["https://player.abyssplayer.com/5Z8p8FVwV"],
+["https://player.abyssplayer.com/_-VYAZE9e"],
+["https://player.abyssplayer.com/t7oVFvZ_a"],
+["https://player.abyssplayer.com/fHMuLjLI6"],
+["https://player.abyssplayer.com/iXqwmO-kL"],
+["https://player.abyssplayer.com/VkCXIq3Xr"],
+["https://player.abyssplayer.com/hds8zWH2d"],
+["https://player.abyssplayer.com/oukdouEDB"],
+["https://player.abyssplayer.com/BjQz0FMFW"],
+["https://player.abyssplayer.com/xShFvHLdN"],
+["https://player.abyssplayer.com/FuxqzjK4p"],
+["https://player.abyssplayer.com/pn-pgkUhQG"],
+["https://player.abyssplayer.com/p1NSVxHJR"],
+["https://player.abyssplayer.com/KO0op8kL6"],
+["https://player.abyssplayer.com/D3bpuDy3q"],
+]},}
+
+const container=document.getElementById("episodes")
+
+Object.entries(seasons).forEach(([key,s])=>{
+
+const title=document.createElement("div")
+title.className="season-title"
+title.textContent=s.name
+
+container.appendChild(title)
+
+const group=document.createElement("div")
+group.className="episode-buttons"
+
+for(let i=0;i<s.episodes;i++){
+
+const a=document.createElement("a")
+
+a.className="episode-button"
+a.textContent=i+1
+
+a.onclick=()=>{
+document.getElementById("player").src=s.links[i][0]
+}
+
+group.appendChild(a)
+
+}
+
+container.appendChild(group)
+
+})
+
+</script>
+
+<script src="/All-That-Animu/js/index.js"></script>
+</html>

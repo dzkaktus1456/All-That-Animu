@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sakurasou no Pet na Kanojo</title>
+
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/light-dark-theme.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+  <script>
+    (() => {
+      const mode = localStorage.getItem("theme-mode") || "light";
+      const variant = localStorage.getItem("theme-variant") || "default";
+      document.documentElement.className = "";
+      document.write(`<body class="${mode} ${variant}">`);
+    })();
+  </script>
+
+  <style>
+    main {
+      padding: 1rem;
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      color: var(--subtitle-color);
+    }
+
+    .season-title {
+      font-size: 1.2rem;
+      color: var(--subtitle-color);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .episode-button {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--text-color);
+      background: var(--card-bg);
+      transition: 0.2s ease;
+      min-width: 40px;
+    }
+
+    .episode-button:hover {
+      background: var(--hover-bg);
+      color: var(--accent-color);
+    }
+
+    .episode-button.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 16px;
+      margin: 20px auto 20px;
+      display: block;
+      background-color: var(--card-bg);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<main>
+  <h1>Sakurasou no Pet na Kanojo</h1>
+
+  <iframe id="player1" allowfullscreen></iframe>
+  <iframe id="player2" allowfullscreen style="display: none;"></iframe>
+
+  <div id="episodes-container"></div>
+</main>
+
+<script>
+  const url = new URLSearchParams(location.search);
+  const ep = parseInt(url.get("ep")) || 0;  // mặc định tập 0 (tức tập 1 hiển thị)
+  const season = url.get("season") || "s1";
+
+  const allSeasons = {
+    s1: {
+      name: "Mùa 1",
+      episodes: 24,
+      links: [
+        ["https://player.abyssplayer.com/SW4x0fC2K"],
+        ["https://player.abyssplayer.com/oNk0o--6Y"],
+        ["https://player.abyssplayer.com/e9d0uWGvP"],
+        ["https://player.abyssplayer.com/VVWZiuStX"],
+        ["https://player.abyssplayer.com/DnCfwdSy7"],
+        ["https://player.abyssplayer.com/ieHglQd6e"],
+        ["https://player.abyssplayer.com/68CVqjVEu"],
+        ["https://player.abyssplayer.com/WUJXEr8M3"],
+        ["https://player.abyssplayer.com/l_7jPEOTj"],
+        ["https://player.abyssplayer.com/JvBUwKWEs"],
+        ["https://player.abyssplayer.com/pnExEMuVG"],
+        ["https://player.abyssplayer.com/7C75JpVv-"],
+        ["https://player.abyssplayer.com/p7VGPCzHH"],
+        ["https://player.abyssplayer.com/ACDyD1-pT"],
+        ["https://player.abyssplayer.com/DYwkVz6sj"],
+        ["https://player.abyssplayer.com/PF6Kfmkvn"],
+        ["https://player.abyssplayer.com/9qbnG8Off"],
+        ["https://player.abyssplayer.com/6KUrNj-hq"],
+        ["https://player.abyssplayer.com/FFezBeYBs"],
+        ["https://player.abyssplayer.com/0gVn9aW8D"],
+        ["https://player.abyssplayer.com/rIxuOSjeU"],
+        ["https://player.abyssplayer.com/vU-nmaSgQ"],
+        ["https://player.abyssplayer.com/-H3nv5BoU"],
+        ["https://player.abyssplayer.com/DrB0i9dbH"]
+      ]
+    }
+  };
+
+  const container = document.getElementById("episodes-container");
+
+  for (const [key, seasonData] of Object.entries(allSeasons)) {
+    const div = document.createElement("div");
+
+    const title = document.createElement("div");
+    title.className = "season-title";
+    title.textContent = seasonData.name;
+    div.appendChild(title);
+
+    const group = document.createElement("div");
+    group.className = "episode-buttons";
+
+    for (let i = 0; i < seasonData.episodes; i++) {
+      const btn = document.createElement("a");
+      btn.className = "episode-button";
+      if (key === season && i === ep) btn.classList.add("active");
+
+      btn.textContent = i + 1;
+      btn.href = `?season=${key}&ep=${i}`;
+
+      group.appendChild(btn);
+    }
+
+    div.appendChild(group);
+    container.appendChild(div);
+  }
+
+  const currentSeason = allSeasons[season];
+  const currentLinks = currentSeason?.links[ep] || [];
+
+  const player1 = document.getElementById("player1");
+  const player2 = document.getElementById("player2");
+
+  if (currentLinks.length >= 1 && currentLinks[0] !== "$$") {
+    player1.src = currentLinks[0];
+    player1.style.display = "block";
+  } else {
+    player1.style.display = "none";
+  }
+
+  if (currentLinks.length >= 2 && currentLinks[1] !== "$$") {
+    player2.src = currentLinks[1];
+    player2.style.display = "block";
+  } else {
+    player2.style.display = "none";
+  }
+</script>
+
+<script src="../js/index.js" defer></script>
+<script src="/All-That-Animu/js/index.js"></script>
+</html>
