@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuru Camp</title>
+
+  <!-- Theme Sync -->
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/light-dark-theme.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+  <script>
+    (() => {
+      const mode = localStorage.getItem("theme-mode") || "light";
+      const variant = localStorage.getItem("theme-variant") || "default";
+      document.documentElement.className = "";
+      document.write(`<body class="${mode} ${variant}">`);
+    })();
+  </script>
+
+  <style>
+    main {
+      padding: 1rem;
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .season-title {
+      font-size: 1.2rem;
+      color: var(--subtitle-color);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .episode-button {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--text-color);
+      background: var(--card-bg);
+      transition: 0.2s ease;
+      min-width: 40px;
+    }
+
+    .episode-button:hover {
+      background: var(--hover-bg);
+      color: var(--accent-color);
+    }
+
+    .episode-button.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 16px;
+      margin: 20px auto 40px;
+      display: block;
+      background-color: var(--card-bg);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<main>
+  <h1>Yuru Camp</h1>
+
+  <!-- Player -->
+  <iframe id="player" allowfullscreen></iframe>
+
+  <!-- Nút chọn tập -->
+  <div id="episodes-container"></div>
+</main>
+
+<script>
+  const url = new URLSearchParams(location.search);
+  const ep = parseInt(url.get("ep")) || 0;
+
+  const allSeasons = {
+
+s1:{
+name:"Mùa 1",
+episodes:12,
+links:[
+["https://player.abyssplayer.com/bD8hdiK7Y"],
+["https://player.abyssplayer.com/rfFEx7gE6"],
+["https://player.abyssplayer.com/82LbuVwou"],
+["https://player.abyssplayer.com/gwS1nTlIX"],
+["https://player.abyssplayer.com/V9q5buBpr"],
+["https://player.abyssplayer.com/2XjfR5OJi"],
+["https://player.abyssplayer.com/XgPJCXZx-"],
+["https://player.abyssplayer.com/Ndljnhpnm"],
+["https://player.abyssplayer.com/UOFgckFNe"],
+["https://player.abyssplayer.com/_bDYFUvujn"],
+["https://player.abyssplayer.com/hleYeDMKW"],
+["https://player.abyssplayer.com/fwNvUebbX"],
+]
+},
+
+s2:{
+name:"Mùa 2",
+episodes:13,
+links:[
+["https://player.abyssplayer.com/AJwMThOBG"],
+["https://player.abyssplayer.com/sjMWnjXOU"],
+["https://player.abyssplayer.com/-VCi1F_5y"],
+["https://player.abyssplayer.com/wZT2VnAlm"],
+["https://player.abyssplayer.com/L2O9a-0o1"],
+["https://player.abyssplayer.com/Q7FA2k7ps"],
+["https://player.abyssplayer.com/k1TC1P2dH"],
+["https://player.abyssplayer.com/CFJKc25Kq"],
+["https://player.abyssplayer.com/1GahlXsEu"],
+["https://player.abyssplayer.com/S5govsh1I"],
+["https://player.abyssplayer.com/CyOS2ivwr"],
+["https://player.abyssplayer.com/RvSKipsbJ"],
+["https://player.abyssplayer.com/Wxcb72nw6"],
+]
+},
+
+s3:{
+name:"Mùa 3",
+episodes:12,
+links:[
+["https://player.abyssplayer.com/ibCW-gx2H"],
+["https://player.abyssplayer.com/mWioPgriT"],
+["https://player.abyssplayer.com/GdsZArJ_N"],
+["https://player.abyssplayer.com/kMI-eSvZQ"],
+["https://player.abyssplayer.com/VLNfWMGQK"],
+["https://player.abyssplayer.com/4SMDKwrl9"],
+["https://player.abyssplayer.com/anSrb8cu-"],
+["https://player.abyssplayer.com/lQ3oDEGh2"],
+["https://player.abyssplayer.com/GuIWpgzru"],
+["https://player.abyssplayer.com/-v1RMKZfC"],
+["https://player.abyssplayer.com/8aDGAALmm"],
+["https://player.abyssplayer.com/NXl3lxZXC"],
+      ]
+    }
+  };
+
+  const container = document.getElementById("episodes-container");
+
+  for (const [key, seasonData] of Object.entries(allSeasons)) {
+    const div = document.createElement("div");
+
+    const title = document.createElement("div");
+    title.className = "season-title";
+    title.textContent = seasonData.name;
+    div.appendChild(title);
+
+    const group = document.createElement("div");
+    group.className = "episode-buttons";
+
+    for (let i = 0; i < seasonData.episodes; i++) {
+      const btn = document.createElement("a");
+      btn.className = "episode-button";
+      if (key === "s1" && i === ep) btn.classList.add("active");
+
+      btn.textContent = i + 1;
+      btn.href = `?ep=${i}`;
+
+      group.appendChild(btn);
+    }
+
+    div.appendChild(group);
+    container.appendChild(div);
+  }
+
+  const currentLink = allSeasons.s1.links[ep] || "";
+  const player = document.getElementById("player");
+
+  if (currentLink && currentLink !== "$$") {
+    player.src = currentLink;
+  } else {
+    player.style.display = "none";
+  }
+</script>
+
+<!-- Theme Sync JS -->
+<script src="../js/index.js" defer></script>
+</body>
+</html>
